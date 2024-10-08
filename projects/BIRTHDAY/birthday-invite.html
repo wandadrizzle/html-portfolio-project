@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Invite Project</title>
+</head>
+<body>
+    <h1>Sindiswa's 29th Birthday Invitation</h1>
+    <p id="notice"></p>
+    <h2>Pull through on the 6th of August 2025</h2>
+    <img src="../../assets/images/wandas-birthday.jpg" alt="sindiswa celebrating being one year closer to death" height="300">
+    <h2>Bring the following:</h2>
+    <ul>
+        <li>A gift,</li>
+        <li>Money to cover your <a href="https://www.coffeeberry.co.za/menus/" target="_blank" alt="opens the menu">Coffeeberry Cafe</a> meal, and</li>
+        <li>Most importantlty yourself.</li>
+    </ul>
+    <h2>This is where you need to go:</h2>
+    <a href="https://www.google.com/maps/dir//Piazza+Cascades+Centre,+23+Mc+Carthy+Dr,+Chase+Valley+Downs,+Pietermaritzburg,+3201/@-29.5718389,30.2742775,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x1ef6bb47b69e4a43:0xea470f225bc4d169!2m2!1d30.3566789!2d-29.5718643?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D">Google Maps link</a>
+</body>
+<script>
+    const currentDate = new Date();
+    console.log("Today is the:", currentDate);
+    const birthday = "6 August 2025";
+    const parsedDate = new Date(birthday);
+
+    const differenceInTime = parsedDate.setHours(0, 0, 0, 0) - currentDate.setHours(0, 0, 0, 0); 
+    const differenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+
+    const announcement = "I can't wait to see you there.";
+    const countdown = document.getElementById('notice');
+    countdown.textContent = announcement + ` You still have ${differenceInDays} days to get my gift. 🙈 `
+
+    if (differenceInDays < 0){
+        announcement = "You missed the day of the invite 😭"
+        countdown.textContent = announcement + ` 29 was an odd birthday to celebrate right? 🙄`
+    }
+    else if (differenceInDays == 0){
+        announcement = "My birthday is today!"
+        countdown.textContent = announcement + ` Are you still coming? 👀`
+    }
+</script>
+</html>

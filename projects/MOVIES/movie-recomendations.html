@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ranking Project</title>
+</head>
+<body>
+    <h1>The Best Movies According to Sindiswa</h1>
+    <h2>My top 3 movies of all time:</h2>
+    <h3>⭐ Citizen Kane (1941)</h3>
+    <p>Orson Welles' directorial debut is a masterpiece of storytelling, cinematography, and acting. The film's innovative use of deep focus, flashbacks, and a nonlinear narrative explores themes of power, ambition, and the American Dream.</p>
+    <h3>⭐ The Godfather (1972)</h3>
+    <p>Francis Ford Coppola's adaptation of Mario Puzo's novel is a cinematic epic that masterfully blends crime drama with family saga. The film's iconic performances, complex characters, and unforgettable scenes have cemented it as a classic.</p>
+    <h3>⭐ Schindler's List (1993)</h3>
+    <p>Steven Spielberg's powerful film is a harrowing but ultimately hopeful portrayal of the Holocaust. The film's stark black-and-white cinematography, haunting score, and emotionally resonant performances make it a must-see.</p>
+    <!--<h3>⭐ The Dark Knight (2008)</h3>
+    <p>Christopher Nolan's second Batman film is a superhero blockbuster that elevates the genre. Heath Ledger's iconic performance as the Joker, the film's gritty realism, and its exploration of complex themes make it a standout.</p>
+    <h3>⭐ Pulp Fiction (1994)</h3>
+    <p>Quentin Tarantino's nonlinear narrative, witty dialogue, and unforgettable characters have made this film a cult classic. The film's unique blend of violence, humor, and philosophical musings is both shocking and thought-provoking.</p>
+    <h3>⭐ The Shawshank Redemption (1994)</h3>
+    <p>Frank Darabont's adaptation of Stephen King's novella is a heartwarming tale of hope and perseverance. The film's powerful performances, memorable characters, and timeless themes have made it a beloved favorite.</p>-->
+    <hr>
+    <h2>Today's recommendation:</h2>
+    <div id="rec">Shhhh, I'm about to tell you about your next favourite movie...</div>
+</body>
+<script>
+    const movie = {
+    title: null,
+    genre: null,
+    synosis: null ,
+    IMDBurl: null ,
+    };
+
+    movies = []
+
+    function addMovie(title, genre, synopsis, IMDBurl) {
+    // Create a copy of the movie object to avoid modifying the original
+    const newMovie = { ...movie };
+
+    // Set the properties of the new movie object
+    newMovie.title = title;
+    newMovie.genre = genre;
+    newMovie.synopsis = synopsis;
+    newMovie.IMDBurl = IMDBurl;
+
+    // Add the new movie to the array
+    movies.push(newMovie);
+    }
+
+    addMovie("Blade Runner 2049 (2017)", "Sci-Fi", "A replicant blade runner is tasked with hunting down and retiring older models who have become rogue. His mission leads him to a secret that could change everything he knows.", "https://www.imdb.com/title/tt1856101/")
+    addMovie("Parasite (2019)", "Drama", "A poor family from a basement apartment schemes to infiltrate the lives of a wealthy family, leading to a series of unexpected and tragic consequences.", "https://www.imdb.com/title/tt6751668/")
+    addMovie("Palm Springs (2020)", "Comedy", "A man and a woman find themselves trapped in a time loop, reliving the same day over and over again. As they try to escape their predicament, they develop a bond that challenges their beliefs about life and love.", "https://www.imdb.com/title/tt9484998/")
+    addMovie("Get Out (2017)", "Horror", "A young African-American man visits his white girlfriend's family estate, only to discover a sinister secret lurking beneath the surface.", "https://www.imdb.com/title/tt5052448/")
+    addMovie("Spider-Man: Into the Spider-Verse (2018)", "Animation", "Miles Morales, a teenager from Brooklyn, becomes Spider-Man and joins forces with other Spider-people from across the multiverse to stop a powerful villain.", "https://www.imdb.com/title/tt4633694/")
+    
+    function createMovieDiv(movie) {
+            const div = document.createElement("div");
+            div.innerHTML = `
+                <a href="${movie.IMDBurl}" target="_blank"><h2>${movie.title}</h2></a>
+                <h3>${movie.genre}</h3>
+                <p>${movie.synopsis}</p>
+                
+            `;
+            return div;
+    }
+
+    function displayRandomMovie() {
+    const randomIndex = Math.floor(Math.random() * movies.length);
+    const randomMovie = movies[randomIndex];
+    const movieContainer = document.getElementById("rec");
+    //movieContainer.innerHTML = createMovieDiv(randomMovie);
+    movieContainer.innerHTML = createMovieDiv(randomMovie).innerHTML;
+    }
+
+    displayRandomMovie();
+</script>
+</html>

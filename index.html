@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Wanda's Section 4 Portfolio | 08102024</title>
+</head>
+<body>
+    <h1>Sindiswa Mkhize's Portfolio</h1>
+    <h2>Aspiring Web Developer</h2>
+    <p id="daysDifference">Date posted: 8 October 2024 (calcultating days past...)</p>
+    <hr>
+    <a href="public/about.html"><h3>About Me</h3></a>
+    <a href="public/contact.html"><h3>Contact Me</h3></a>
+    <hr>
+    <h2>Projects</h2>
+
+    <ul>
+        <li><h3>Project One: Movie Ratings and Recommendations</h3>
+            <ul style="list-style: none;">
+                <li>This was done during Section 2 of Angela Yu's Udemy "The Complete 2024 Web Development Bootcamp"</li>
+                <li><a title="click to view project" href="projects/MOVIES/movie-recomendations.html" target="_blank"><img src="projects/MOVIES/movie-project.PNG" alt="movie ratings and recommendations project" style="border: 1px solid black;" height="300px"></a></li>
+            </ul>
+            
+        </li>
+        <li><h3>Project Two: Birthday Invitation</h3>
+            <ul style="list-style: none;">
+                <li>This was done during Section 3 of Angela Yu's Udemy "The Complete 2024 Web Development Bootcamp"</li>
+                <li><a title="click to view project" href="projects/BIRTHDAY/birthday-invite.html" target="_blank"><img src="projects/BIRTHDAY/invitation-screenshot.PNG" alt="birthday invitation project" style="border: 1px solid black;" height="300px"></a></li>
+            </ul>
+        </li>
+    </ul>
+    <!--HINT for TODO 6: You can use the height attribute set to 200 to make the image smaller:
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-height -->
+<hr>
+<h3>Talk to me via my socials:</h3>
+<ul>
+    <li><a href="https://x.com/wandadrizzle">X</a></li>
+    <li><a href="https://discordapp.com/users/sindiswamkhize/">Discord</a></li>
+</ul>
+</body>
+<script>
+    const currentDate = new Date();
+    console.log("Today is the:", currentDate);
+    const dateString = "8 October 2024";
+    const parsedDate = new Date(dateString);
+    console.log("Wanda finished her first portfolio on the:", currentDate);
+    const differenceInTime = parsedDate.setHours(0, 0, 0, 0) - currentDate.setHours(0, 0, 0, 0); 
+    const differenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
+
+    const daysDifferenceParagraph = document.getElementById('daysDifference');
+    daysDifferenceParagraph.textContent = `Date posted: 8 October 2024 (${differenceInDays} days ago)`; 
+</script>
+</html>
